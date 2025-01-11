@@ -20,7 +20,6 @@ A simple and elegant weather-checking app that allows users to search for curren
 - **Frontend:** HTML, CSS, JavaScript
 - **API:** OpenWeatherMap (or any other weather API)
 - **Icons:** Custom or sourced from a library like FontAwesome
-- **Frameworks/Libraries:** (e.g., React, Tailwind CSS, if applicable)
 
 ## Installation 🚀
 
