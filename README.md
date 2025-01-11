@@ -2,7 +2,7 @@
 
 A simple and elegant weather-checking app that allows users to search for current weather conditions, including temperature, humidity, and wind speed for any location.
 
-![App Screenshot](path-to-your-screenshot.png)
+![App Screenshot](./screenshot/Screenshot%202024-07-27%20182335.png)
 
 ## Features ✨
 
