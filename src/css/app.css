@@ -1,94 +1,208 @@
-* {
-    margin: 0;
-    padding: 0;
-    font-family: poppins, sans-serif;
+/* Global box-sizing reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 body {
-    background-color: #000000;
-}
-
-.card {
-    width: 90%;
-    max-width: 470px;
-    background: linear-gradient(135deg, #00feba, #5b548a);
-    color: #fff;
-    margin: 100px auto 0;
-    border-radius: 20px;
-    padding: 40px 35px;
-    text-align: center;
-}
-
-.search {
-    width: 100%;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #87CEFA, #f0f8ff);
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: background 0.3s, color 0.3s; /* Smooth transition for dark mode */
+}
+
+body.dark-mode {
+    background: linear-gradient(to bottom, #2c3e50, #34495e);
+    color: #ecf0f1;
+}
+
+/* Container for centering */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Card styles */
+.card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    text-align: center;
+    transition: background 0.3s, color 0.3s;
+}
+
+body.dark-mode .card {
+    background: #2c3e50;
+    color: #ecf0f1;
+}
+
+/* Search section */
+.search {
+    display: flex;
+    margin-bottom: 20px;
 }
 
 .search input {
-    border: 0;
-    outline: 0;
-    background: #ebfffc;
-    color: #555;
-    padding: 10px 25px;
-    height: 60px;
-    border-radius: 30px;
     flex: 1;
-    margin-right: 16px;
-    font-size: 18px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px 0 0 8px;
+    outline: none;
+    font-size: 16px;
+    transition: background 0.3s, color 0.3s, border 0.3s;
+}
+
+body.dark-mode .search input {
+    background: #34495e;
+    color: #ecf0f1;
+    border: 1px solid #2c3e50;
 }
 
 .search button {
-    border: 0;
-    outline: 0;
-    background: #ebfffc;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    border: none;
+    background-color: #007BFF;
+    border-radius: 0 8px 8px 0;
     cursor: pointer;
+    padding: 0 15px;
+    transition: background 0.3s;
+}
+
+body.dark-mode .search button {
+    background-color: #1abc9c;
 }
 
 .search button img {
-    width: 16px;
+    width: 20px;
+    height: 20px;
+}
+
+/* Weather section */
+.weather {
+    text-align: center;
 }
 
 .weather-icon {
-    width: 170px;
-    margin-top: 30px;
+    width: 80px;
+    margin: 10px auto;
 }
 
-.weather h1 {
-    font-size: 80px;
-    font-weight: 500;
+.temp {
+    font-size: 48px;
+    margin: 10px 0;
+    font-weight: bold;
+    color: #333;
 }
 
-.weather h2 {
-    font-size: 45px;
-    font-weight: 400;
-    margin-top: -10px;
+body.dark-mode .temp {
+    color: #ecf0f1;
 }
 
+.city {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+body.dark-mode .city {
+    color: #bdc3c7;
+}
+
+/* Weather details section */
 .details {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
-    margin-top: 50px;
+    gap: 10px;
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s, box-shadow 0.3s;
 }
 
-.col {
+body.dark-mode .details {
+    background-color: #34495e;
+}
+
+.detail-item {
     display: flex;
     align-items: center;
-    text-align: left;
+    gap: 10px;
 }
 
-.col img {
-    width: 40px;
-    margin-right: 10px;
+.detail-item img {
+    width: 30px;
+    height: 30px;
+}
+
+.detail-item p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+body.dark-mode .detail-item p {
+    color: #ecf0f1;
 }
 
 .humidity, .wind {
-    font-size: 18px;
-    margin-top: -6px;
+    font-weight: bold;
+    color: #007BFF;
+}
+
+body.dark-mode .humidity, 
+body.dark-mode .wind {
+    color: #1abc9c;
+}
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+    font-size: 24px; /* Ensures the emoji is properly sized */
+}
+
+.dark-mode-toggle:hover {
+    background-color: var(--button-hover-bg, #555); /* Slightly darker on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode-toggle:active {
+    transform: scale(0.95); /* Adds a subtle press effect */
+}
+
+/* Light Mode Variables */
+:root {
+    --button-bg: #f0f0f0;
+    --button-text: #333;
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+    --button-bg: #444;
+    --button-text: #f0f8ff;
+    --button-hover-bg: #666;
 }

@@ -4,6 +4,7 @@ const apiUrl = "https://api.openweathermap.org/data/2.5/weather?&units=metric&q=
 const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
 const weatherIcon = document.querySelector(".weather-icon");
+const darkModeToggle = document.querySelector(".dark-mode-toggle");
 
 async function checkWeather(city) {
     const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
@@ -36,8 +37,15 @@ async function checkWeather(city) {
 
 searchBtn.addEventListener("click" , ()=>{
     checkWeather(searchBox.value);
-}
-)
+});
+
+darkModeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+});
+
+
+
+
 
 
 
